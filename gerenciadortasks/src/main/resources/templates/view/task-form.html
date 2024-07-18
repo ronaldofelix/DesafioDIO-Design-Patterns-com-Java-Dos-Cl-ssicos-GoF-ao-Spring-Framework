@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulário de Tarefas</title>
+</head>
+<body>
+    <h1 th:text="${#strings.isEmpty(task.id) ? 'Nova Tarefa' : 'Editar Tarefa'}"></h1>
+    <form th:action="@{/tasks}" th:object="${task}" method="post">
+        <div>
+            <label for="title">Título:</label>
+            <input type="text" id="title" name="title" th:field="*{title}" />
+        </div>
+        <div>
+            <label for="description">Descrição:</label>
+            <input type="text" id="description" name="description" th:field="*{description}" />
+        </div>
+        <div>
+            <label for="completed">Completada:</label>
+            <input type="checkbox" id="completed" name="completed" th:field="*{completed}" />
+        </div>
+        <div>
+            <button type="submit">Salvar</button>
+            <a href="/tasks">Cancelar</a>
+        </div>
+    </form>
+</body>
+</html>

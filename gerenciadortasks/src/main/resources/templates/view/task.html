@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Detalhes da Tarefa</title>
+</head>
+<body>
+    <h1>Detalhes da Tarefa</h1>
+    <div>
+        <p><strong>ID:</strong> <span th:text="${task.id}"></span></p>
+        <p><strong>Título:</strong> <span th:text="${task.title}"></span></p>
+        <p><strong>Descrição:</strong> <span th:text="${task.description}"></span></p>
+        <p><strong>Completada:</strong> <span th:text="${task.completed ? 'Sim' : 'Não'}"></span></p>
+    </div>
+    <a th:href="@{/tasks/edit/{id}(id=${task.id})}">Editar</a>
+    <a href="/tasks">Voltar</a>
+</body>
+</html>
